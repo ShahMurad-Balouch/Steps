@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ceb4b4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 500px;
+}
+
+.numbers, .paragraphs {
+    display: flex;
+    justify-content: space-around;
+    font-size: xx-large;
+    margin-bottom: 20px;
+}
+
+.number, .para {
+    padding: 30px;
+}
+.para.show {
+    background-color: blue;
+}
+.number.active {
+    background-color: blueviolet;
+    color: white;
+    width: 40px;
+    border-radius: 100%;
+}
+
+.btn {
+    background-color: blueviolet;
+    color: white;
+    margin: 23px;
+    padding: 16px ;
+    width: 90px;
+    border-radius: 30%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+font-size: x-large;
+}
+
+.btn:hover {
+    background-color: rgb(32, 2, 39);
+}
