@@ -97,50 +97,56 @@
 //     applyStyles(currentIndex);
 // });
 
-    const numbers = document.querySelectorAll('.number');
-    const paragraph = document.querySelector('.para');
-    var next =  document.getElementById('next');
-    var prev = document.getElementById('prev');
-    var reset = document.getElementById('reset');
-    let currentIndex = 0;
+const numbers = document.querySelectorAll('.number');
+const paragraph = document.querySelector('.para');
+var next =  document.getElementById('next');
+var prev = document.getElementById('prev');
+var reset = document.getElementById('reset');
+let currentIndex = 0;
 
-    const updateDisplay = () => {
-        // Remove 'active' class from all numbers
-        document.querySelector('.number.active')?.classList.remove('active');
-        // Add 'active' class to current index number
-        numbers[currentIndex].classList.add('active');
+const updateDisplay = () => {
+    // Remove 'active' class from all numbers
+    document.querySelector('.number.active')?.classList.remove('active');
+    // Add 'active' class to current index number
+    numbers[currentIndex].classList.add('active');
 
-        // Update paragraph content based on the current active number
-        switch (numbers[currentIndex].id) {
-            case 'num-1': paragraph.textContent = 'Step 1:  Learn React';
-                break;
-            case 'num-2': paragraph.textContent = 'Step 2: Learn Html';
-                break;
-            case 'num-3': paragraph.textContent = 'Step 3: Learn JavaScript';
-                break;
-            default: console.error(`Error: Invalid ID ${numbers[currentIndex].id}`);
-        } 
-    };
-    const nextButtonClickHandler = () => {
-        if (currentIndex < numbers.length - 1) {
-            currentIndex++;
-            updateDisplay();
-        }
-    };
-    const prevButtonClickHandler = () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateDisplay();
-        }
-    };
-    const resetButtonClickHandler = () => {
-        currentIndex = 0;
+    // Update paragraph content based on the current active number
+    switch (numbers[currentIndex].id) {
+        case 'num-1': paragraph.textContent = 'Step 1:  Learn React';
+            break;
+        case 'num-2': paragraph.textContent = 'Step 2: Learn Html';
+            break;
+        case 'num-3': paragraph.textContent = 'Step 3: Learn JavaScript';
+            break;
+        default: console.error(`Error: Invalid ID ${numbers[currentIndex].id}`);
+    } 
+
+    // Enable or disable buttons based on the current index
+    prev.classList.toggle('disabled', currentIndex === 0);
+    next.classList.toggle('disabled', currentIndex === numbers.length - 1);
+}
+const nextButtonClickHandler = () => {
+    if (currentIndex < numbers.length -1 ) {
+        currentIndex++;
         updateDisplay();
-    };
-    // Add event listeners to buttons
-    next.addEventListener('click', nextButtonClickHandler);
-    prev.addEventListener('click', prevButtonClickHandler);
-    reset.addEventListener('click', resetButtonClickHandler);
-    // Initial display setup
-    updateDisplay();
+    }
+};
 
+
+const prevButtonClickHandler = () => {
+    if (currentIndex >  0) {
+        currentIndex--;
+        updateDisplay();
+    }
+    
+};
+const resetButtonClickHandler = () => {
+    currentIndex = 0;
+    updateDisplay();
+};
+// Add event listeners to buttons
+next.addEventListener('click', nextButtonClickHandler);
+prev.addEventListener('click', prevButtonClickHandler);
+reset.addEventListener('click', resetButtonClickHandler);
+// Initial display setup
+updateDisplay();

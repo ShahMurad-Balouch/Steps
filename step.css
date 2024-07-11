@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-    background-color: #ceb4b4;
+    background-color: #efe7e7;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -41,10 +41,11 @@ body {
 .btn {
     background-color: blueviolet;
     color: white;
-    margin: 23px;
-    padding: 16px ;
-    width: 90px;
-    border-radius: 30%;
+    margin: 25px;
+height: 65px;
+    width: 20%;
+    border-radius: 40%;
+    border-style: none;
     cursor: pointer;
     transition: background-color 0.3s;
 font-size: x-large;
@@ -52,4 +53,8 @@ font-size: x-large;
 
 .btn:hover {
     background-color: rgb(32, 2, 39);
+}
+
+.disabled {
+    background-color: rgb(135, 147, 148);
 }
